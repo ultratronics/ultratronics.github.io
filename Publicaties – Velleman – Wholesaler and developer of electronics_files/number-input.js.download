@@ -1,0 +1,8 @@
+//alle buttons binnen een form gaan standaard gaan submitten, deze functie moet dit voorkomen
+
+var buttons = document.querySelectorAll('form button:not([type="submit"])');
+for (i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener('click', function(e) {
+        e.preventDefault();
+    });
+}

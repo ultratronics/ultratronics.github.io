@@ -1,0 +1,40 @@
+//add height to Category Menu
+function addHeight() {
+    var categories = $(".level0");
+    if(window.innerWidth>990) {
+
+        for (var i = 0; i < categories.size(); i++) {
+            var category = categories[i];
+            var link = category.getElementsByTagName("a")[0];
+            if (link.offsetWidth == 298) {
+                category.style.height = "62px";
+            }
+        }
+    }
+    else{
+        for (var i = 0; i < categories.size(); i++) {
+            var category = categories[i];
+            var link = category.getElementsByTagName("a")[0];
+            category.style.height = "40px";
+        }
+    }
+}
+window.addEventListener("load",addHeight);
+window.addEventListener("resize", addHeight);
+
+//position menu above fold
+$(document).ready(function(){
+    $(".level0").hover(function(){
+
+        var dropmenu = $(this).find('.drop-menu');
+        var bottom_of_element = dropmenu.offset().top + dropmenu.outerHeight();
+        var bottom_of_screen = $(window).scrollTop() + $(window).innerHeight();
+
+        if ((bottom_of_element >= bottom_of_screen + 3)){
+            var amount = bottom_of_element - bottom_of_screen + 2;
+            dropmenu.css({marginTop: '-=' + amount + 'px'});
+        } else {
+            dropmenu.css({marginTop: -41});
+        }
+    });
+});

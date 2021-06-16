@@ -1,0 +1,10 @@
+function changeWidth() {
+    if (window.innerWidth < 768) {
+        $(".news-slide").css("width", "100%");
+        $(".advertisement-slide").css("width", "100%");
+    }
+}
+
+window.onload = function start(){
+    setInterval(changeWidth, 100);
+};

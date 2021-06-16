@@ -1,0 +1,7 @@
+$(".login-sprite-container").hover(function(){
+        $(this).find(".login-sprite-container-hover").fadeIn(1000);//.css("display","block")
+    },
+    function(){
+        $(this).find(".login-sprite-container-hover").css("display","none")
+    });
+

@@ -1,0 +1,30 @@
+
+if((navigator.userAgent.indexOf("MSIE") != -1 ) || (!!document.documentMode == true )) //IF IE > 10
+{
+    var compareButtons = document.getElementsByClassName("compare-sprite-container");
+
+    for (var i = 0; i < compareButtons.length; i++) {
+        console.log("deleted" + compareButtons[i]);
+        compareButtons[i].innerHTML="";
+    }
+
+    var arrows = document.getElementsByClassName("img-parent-arrow-ie");
+
+    //event listener toevoegen op alle pijltjes
+    for(var i = 0; i<arrows.length; i++){
+        arrows[i].addEventListener("click", toggleSubCats);
+    }
+
+    function toggleSubCats(e){
+        var rootNode = e.target.parentNode.parentNode.parentNode;
+        if(rootNode.classList.contains("active")){
+            rootNode.classList.remove("active");
+            rootNode.nextElementSibling.style.display = "none";
+        }
+        else{
+            rootNode.classList.add("active");
+            rootNode.nextElementSibling.style.display = "table-row";
+        }
+    }
+
+}
